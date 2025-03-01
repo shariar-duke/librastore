@@ -1,3 +1,10 @@
+import { getAllBooks } from "../lib/fake-data";
+import BookList from "../ui/books/BookList";
 export default function BookListPage() {
-  return <div>page</div>;
+  const books = getAllBooks();
+  return (
+    <div>
+      <BookList books={books} />
+    </div>
+  );
 }

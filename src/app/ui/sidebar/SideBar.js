@@ -5,12 +5,12 @@ import NavLinks from "./NavLinks";
 
 export default function SideBar() {
   return (
-    <div>
+    <div className="flex flex-col">
       <Link
         href="/store"
         className="bg-purple-500 flex h-14 items-center justify-start rounded-md p-4"
       >
-        <div className="w-32 md:w-40 ">
+        <div className="w-full md:w-32 md:w-40 ">
           <Logo />
         </div>
       </Link>

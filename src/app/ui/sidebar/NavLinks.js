@@ -27,7 +27,7 @@ const links = [
 
 export default function NavLinks() {
   return (
-    <nav className="flex flex-row md:flex-col gap-2 w-full">
+    <nav className="flex flex-wrap md:flex-col gap-2 w-full">
       {links.map(({ name, href, icon: Icon }) => (
         <Link
           key={name}

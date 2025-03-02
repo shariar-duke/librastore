@@ -1,5 +1,7 @@
 "use client";
+import { StoreContext } from "@/app/context";
 import Link from "next/link";
+import { useContext } from "react";
 
 import {
   BookOpenIcon,
@@ -26,6 +28,7 @@ const links = [
 ];
 
 export default function NavLinks() {
+  const { cartData } = useContext(StoreContext);
   return (
     <nav className="flex flex-wrap md:flex-col gap-2 w-full">
       {links.map(({ name, href, icon: Icon }) => (
@@ -38,7 +41,11 @@ export default function NavLinks() {
           <Icon className="w-6" />
 
           {/* for label  */}
-          <span className="hidden md:inline-block">{name}</span>
+          <span className="hidden md:inline-block">
+            {name === "Cart" && cartData && cartData.length > 0
+              ? `${name} (${cartData.length})`
+              : name}
+          </span>
         </Link>
       ))}
     </nav>

@@ -1,15 +1,19 @@
 "use client";
+import { StoreContext } from "@/app/context";
 import { ShoppingCartIcon } from "@heroicons/react/24/solid";
+import { useContext } from "react";
 import { toast } from "react-toastify";
 // Ensure toast styles are loaded
 
 export default function AddtoCart({ book }) {
+  const { cartData, setCartData } = useContext(StoreContext);
   const handleCart = (e, reason) => {
     e.preventDefault();
     const newData = { ...book, type: reason };
+    // now add this newData into the cart
+    setCartData((prevCart) => [...prevCart, newData]);
 
-    console.log(reason);
-
+    console.log("update cartData is", cartData);
     toast.success(`Added ${newData.title} to the cart`, {
       autoClose: 1000,
       position: "top-right",

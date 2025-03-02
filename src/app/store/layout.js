@@ -1,3 +1,4 @@
+import StoreProvider from "../provider";
 import SideBar from "../ui/sidebar/SideBar";
 
 export const metadata = {
@@ -7,11 +8,13 @@ export const metadata = {
 
 export default function BookStoreLayout({ children }) {
   return (
-    <div className="flex">
-      <div className="flex  flex-col md:flex-row p-2 justify-center">
-        <SideBar />
-        {children}
+    <StoreProvider>
+      <div className="flex">
+        <div className="flex  flex-col md:flex-row p-2 justify-center">
+          <SideBar />
+          {children}
+        </div>
       </div>
-    </div>
+    </StoreProvider>
   );
 }

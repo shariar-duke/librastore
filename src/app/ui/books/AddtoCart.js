@@ -10,13 +10,15 @@ export default function AddtoCart({ book }) {
   const handleCart = (e, reason) => {
     e.preventDefault();
     const newData = { ...book, type: reason };
-    // now add this newData into the cart
-    setCartData((prevCart) => [...prevCart, newData]);
 
-    console.log("update cartData is", cartData);
-    toast.success(`Added ${newData.title} to the cart`, {
-      autoClose: 1000,
-      position: "top-right",
+    setCartData((prevCart) => {
+      const updatedCart = [...prevCart, newData];
+      toast.success(`Added ${newData.title} to the cart`, {
+        autoClose: 1000,
+        position: "top-right",
+      });
+
+      return updatedCart;
     });
   };
 

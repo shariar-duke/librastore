@@ -1,15 +1,21 @@
 "use client";
 import { ShoppingCartIcon } from "@heroicons/react/24/solid";
 import { toast } from "react-toastify";
+// Ensure toast styles are loaded
+
 export default function AddtoCart({ book }) {
   const handleCart = (e, reason) => {
     e.preventDefault();
     const newData = { ...book, type: reason };
+
+    console.log(reason);
+
     toast.success(`Added ${newData.title} to the cart`, {
       autoClose: 1000,
-      position: toast.POSITION.TOP_RIGHT,
+      position: "top-right",
     });
   };
+
   return (
     <div className="flex justify-between w-full mb-4 gap-2">
       {/* Buy Button */}

@@ -13,14 +13,17 @@ export default function AddtoCart({ book }) {
 
     setCartData((prevCart) => {
       const updatedCart = [...prevCart, newData];
-      toast.success(`Added ${newData.title} to the cart`, {
-        autoClose: 1000,
-        position: "top-right",
-      });
+      return updatedCart; // Only return updated cart here
+    });
 
-      return updatedCart;
+    // Toast should be outside state update to avoid hydration issues
+    toast.success(`Added ${newData.title} to the cart`, {
+      autoClose: 1000,
+      position: "top-right",
     });
   };
+
+  console.log("Now the Cart Data is", cartData);
 
   return (
     <div className="flex justify-between w-full mb-4 gap-2">

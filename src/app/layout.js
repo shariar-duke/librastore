@@ -1,3 +1,4 @@
+import { dbConnect } from "@/services/mongo";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -18,7 +19,10 @@ export const metadata = {
   description: "A Book Store Library",
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  // calling the db connection fucntion
+  const connection = await dbConnect();
+  console.log("db connection", connection);
   return (
     <html lang="en">
       <body

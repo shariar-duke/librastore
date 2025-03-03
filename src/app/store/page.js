@@ -1,7 +1,8 @@
-import { getAllBooks } from "../lib/fake-data";
+import { getAllBooks } from "@/db/queries";
 import BookList from "../ui/books/BookList";
-export default function BookListPage() {
-  const books = getAllBooks();
+export default async function BookListPage() {
+  const books = await getAllBooks();
+
   return (
     <div>
       <BookList books={books} />

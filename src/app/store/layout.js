@@ -12,7 +12,8 @@ export default function BookStoreLayout({ children }) {
       <div className="flex min-h-screen bg-[#E7E9EB]">
         <div className="flex  flex-col md:flex-row p-2 justify-center  ">
           <SideBar />
-          {children}
+
+          <div className="p-4">{children}</div>
         </div>
       </div>
     </StoreProvider>

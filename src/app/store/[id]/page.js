@@ -1,4 +1,4 @@
-import { getBookById } from "@/app/lib/fake-data";
+import { getBookById } from "@/db/queries";
 import {
   ArchiveBoxIcon,
   ArchiveBoxXMarkIcon,
@@ -8,7 +8,8 @@ import Image from "next/image";
 
 export default async function BookDetailsPage({ params }) {
   const { id } = await params;
-  const book = getBookById(id);
+  const book = await getBookById(id);
+  console.log("The book Details is", book);
 
   if (!book) {
     return <div className="text-center text-red-500">Book not found!</div>;
